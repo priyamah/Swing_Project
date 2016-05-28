@@ -65,6 +65,7 @@ public class BrowserSample {
     public JTextArea left_text;
     public JPanel mainPanel;
     public JTextField left_Lowpaneltext;
+    public JFrame googleframe;
     /**
      * In map.html file default zoom value is set to 4.
      */
@@ -421,6 +422,8 @@ public static void main(String[] args) {
     		                 	    
     		                	  bSampleObj.initialize();
     		                	  bSampleObj.frame.setVisible(true);
+    		                	  bSampleObj.googleframe.setVisible(false);
+    		                	  
     		                	  final JButton[] group_of_buttons = new JButton[bSampleObj.total_vending_item()];
     		                	  int i;
 
@@ -519,15 +522,15 @@ public static void main(String[] args) {
         });
         toolBar.add(setCafeMachine);
         toolBar.add(setVendingMachine);
-        JFrame googleframe = new JFrame();
-        googleframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        googleframe.add(toolBar, BorderLayout.NORTH);
-        googleframe.add(browserView, BorderLayout.CENTER);
-        googleframe.setSize(800, 600);
-        googleframe.setLocationRelativeTo(null);
-        googleframe.setVisible(true);
-        googleframe.setBounds(100, 50, 1000, 760);
-		googleframe.setMaximumSize(new Dimension(1000,760));
+        bSampleObj.googleframe = new JFrame();
+        bSampleObj.googleframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        bSampleObj.googleframe.add(toolBar, BorderLayout.NORTH);
+        bSampleObj.googleframe.add(browserView, BorderLayout.CENTER);
+        bSampleObj.googleframe.setSize(800, 600);
+        bSampleObj. googleframe.setLocationRelativeTo(null);
+        bSampleObj. googleframe.setVisible(true);
+        bSampleObj.googleframe.setBounds(100, 50, 1000, 760);
+        bSampleObj.googleframe.setMaximumSize(new Dimension(1000,760));
         browser.loadURL("file:///Users/priyamaheshwari/Documents/java_programs/Google/src/map.html");
        		
     }
