@@ -50,7 +50,7 @@ import java.awt.event.ActionListener;
  * navigate to the "www.google.com" web site.
  */
 public class BrowserSample {
-	int total_vending_item () { return 20; }
+	int total_vending_item () { return 10; }
 
 	private JFrame frame;
 	StringBuilder text3;
@@ -83,7 +83,6 @@ public class BrowserSample {
 		parentPanel.setBounds(0,0,1000,550);
 		frame.getContentPane().add(parentPanel);
 		parentPanel.setLayout(new CardLayout(0, 0));
-		
 		
 		final JPanel lowerPanel=new JPanel();
 		lowerPanel.setBackground(Color.CYAN);
@@ -120,12 +119,8 @@ public class BrowserSample {
 		left_LowpanelJlabel.setHorizontalAlignment(SwingConstants.CENTER);
 		left_Lowpanel.add(left_LowpanelJlabel);
 		
-		
-		
-		final JTextField left_Lowpaneltext=new JTextField();
+		left_Lowpaneltext=new JTextField();
 		left_Lowpaneltext.setEnabled(false);
-		
-		
 		left_Lowpaneltext.setHorizontalAlignment(SwingConstants.CENTER);
 		left_Lowpanel.add(left_Lowpaneltext);
 		left_Lowpanel.setEnabled(false);
@@ -135,11 +130,10 @@ public class BrowserSample {
 		final JPanel centerPanel=new JPanel();
 		centerPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		centerPanel.setBackground(Color.GREEN);
-		//northPanel.setBounds(0, 0, 10, 223);
+		
 		lowerPanel.add(centerPanel);
 		centerPanel.setLayout(new BorderLayout(3, 3));
 		JPanel uppercenterpanel=new JPanel();
-		//centerlabel1.setSize(new Dimension(50,50));
 		JPanel lowercenterpanel=new JPanel();
 		centerPanel.add( uppercenterpanel,BorderLayout.NORTH);
 		centerPanel.add(lowercenterpanel,BorderLayout.CENTER);
@@ -150,47 +144,33 @@ public class BrowserSample {
 		uppercenterpanel.add(centeruppertext);
 		lowercenterpanel.setLayout(new GridLayout(3, 3, 50, 5));
 		JButton[] coin=new JButton[6];
-		for(int i=0;i<6;i++)
-		{
-		
-			 coin[i]=new JButton();
-			 lowercenterpanel.add(coin[i]);
-			
-				 
-			
-		}
+		for(int i=0;i<6;i++){
+			coin[i]=new JButton();
+			lowercenterpanel.add(coin[i]);
+	    }
 		 
-		
-		
-		
-		//Adding img to each button
+//Adding img to each button
 		try{
 		
 		 Image img1 = ImageIO.read(getClass().getResource("doll1.png"));
-		
 		 Image img2 = ImageIO.read(getClass().getResource("doll5.jpg"));
-		
 		 Image img3 = ImageIO.read(getClass().getResource("cent1.jpeg"));
 		 Image img4 = ImageIO.read(getClass().getResource("cent5.jpg"));
 		 Image img5 = ImageIO.read(getClass().getResource("cent10.jpeg"));
 		 Image img6 = ImageIO.read(getClass().getResource("cent25.jpeg"));
 		 Image[] images = {img1, img2, img3,img4,img5,img6};
 		 for (int i=0;i<6;i++){
-			 
-			
-			 images[i] = images[i].getScaledInstance(120, 30,  java.awt.Image.SCALE_SMOOTH ) ;
-			
-			 coin[i].setIcon(new ImageIcon(images[i]));
+		    images[i] = images[i].getScaledInstance(120, 30, java.awt.Image.SCALE_SMOOTH ) ;
+		    coin[i].setIcon(new ImageIcon(images[i]));
 		 }
-		}
-		 catch(Exception e)
+		}catch(Exception e)
 		 {
 			 System.out.println("Error is" +e);
 		 }
 		final JPanel rightPanel=new JPanel();
 		rightPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		rightPanel.setBackground(Color.YELLOW);
-		//northPanel.setBounds(0, 0, 10, 223);
+		
 		lowerPanel.add(rightPanel);
 		rightPanel.setLayout(new BorderLayout(3, 3));
 		final JPanel right_upper=new JPanel();
@@ -226,16 +206,15 @@ public class BrowserSample {
 				 String enter_subs=enter.substring(1, 5);
 				 float entered_cost=Float.parseFloat(enter_subs);
 				 df.format(entered_cost);
-				 //System.out.println("entered_cost");
+				
 				 
 				 String req=left_Lowpaneltext.getText();
 				
 				 String req_subs=req.substring(1, 5);
-				// System.out.println("req_subs");
+				
 				 float req_cost=Float.parseFloat(req_subs);
 				 df.format(req_cost);
-				// System.out.println("req_cost");
-				 
+			
 				 
 				 if (entered_cost==req_cost){
 					 error.setText("<html><b><u>Thanks!Collect your items!<u><b></html>");
@@ -260,8 +239,6 @@ public class BrowserSample {
 	 }});
 		right_button[1].setText("PAY BY CARD");
 		right_button[1].setEnabled(false);
-		
-		
 		
 		// Adding ecvent handlers for coin button
 		coin[0].addActionListener(new ActionListener(){
@@ -327,10 +304,6 @@ public class BrowserSample {
 				 
 			 }});
 		
-		
-		
-		
-		
 		JPanel rightPanel3=new JPanel();
 		rightPanel.add(rightPanel3,BorderLayout.SOUTH);
 		rightPanel3.setPreferredSize(new Dimension(30,30));
@@ -349,7 +322,6 @@ public class BrowserSample {
 		});
 		cancel.setText("<html><b>CANCEL OR RESET THE ORDER</b></html>");
 		rightPanel3.add(cancel,BorderLayout.CENTER);
-		
 		final JPanel panel1 = new JPanel();
 		JPanel upperPanel = new JPanel();
 		panel1.add(upperPanel);
@@ -400,11 +372,11 @@ void populate_buttons(JButton [] group_of_buttons, int count) {
 		//String img_name = "cocacola.jpg";
 		double price = 5.12;
 		String name = "CocaCola";
-		
+		System.out.println("populate_buttons");
 		try {
 			//RUN SQL QUERY TO FETCH THE DATA
 			for(int i= 0; i< count; i++) {
-				//System.out.println(img_name);
+				System.out.println(name);
 				Image img = ImageIO.read(getClass().getResource("cocacola.png"));
 				//System.out.println(img);
 				img = img.getScaledInstance(100, 150,java.awt.Image.SCALE_SMOOTH ) ; 
@@ -420,7 +392,7 @@ void populate_buttons(JButton [] group_of_buttons, int count) {
         	System.out.println("Exception"+ep);
         }
 		
-		
+		System.out.println("Hello World");
 		 
 		
 	
@@ -450,13 +422,13 @@ public static void main(String[] args) {
     		                	  bSampleObj.initialize();
     		                	  bSampleObj.frame.setVisible(true);
     		                	  final JButton[] group_of_buttons = new JButton[bSampleObj.total_vending_item()];
-    		      					int i;
+    		                	  int i;
 
-    		      				for (i=0;i<bSampleObj.total_vending_item();i++){ 
-    		      					final int  j=i;
+    		                	  for (i=0;i<bSampleObj.total_vending_item();i++){ 
+    		      					        final int  j=i;
     		      						    group_of_buttons[i] =new JButton();
     		      							group_of_buttons[i].setBackground(Color.black);
-    		      							group_of_buttons[i].setVisible(true);
+    		      							//group_of_buttons[i].setVisible(true);
     		      							group_of_buttons[i].addActionListener(new ActionListener(){
     		      							public void actionPerformed(ActionEvent e) {
     		      						    String quantity = JOptionPane.showInputDialog(bSampleObj.frame,
@@ -469,16 +441,24 @@ public static void main(String[] args) {
     		      						    bSampleObj.text4.append(bSampleObj.text3);
     		      						    bSampleObj.left_text.setText(bSampleObj.text4.toString());
     		      						    bSampleObj. total_price=(bSampleObj.total_price)+Float.parseFloat(bSampleObj.text_Price)*quant;
-    		      							 DecimalFormat df = new DecimalFormat("#.00");
+    		      							DecimalFormat df = new DecimalFormat("#.00");
     		      							bSampleObj.left_Lowpaneltext.setText("$"+String.valueOf(df.format(bSampleObj.total_price)));
     		      							 }}); 
 
-    		      							bSampleObj.mainPanel.add(group_of_buttons[i]);
-    		      							//bSampleObj.mainPanel.revalidate();
-    		      							//bSampleObj.mainPanel.repaint();
+    		      							//bSampleObj.mainPanel.add(group_of_buttons[i]);
+    		      							
     		      				}
+    		                	  
+    		      				
     		      				bSampleObj.populate_buttons(group_of_buttons, bSampleObj.total_vending_item());
-    		    				
+    		      				for (i=0;i<bSampleObj.total_vending_item();i++){ 
+	      					        //final int  j=i;
+    		      					bSampleObj.mainPanel.add(group_of_buttons[i]);
+	      							
+	      						  //  group_of_buttons[i].setVisible(true);
+    		      				}
+    		      				bSampleObj.mainPanel.revalidate();
+      							bSampleObj.mainPanel.repaint();
     		                  }
 
     		                  return title;
@@ -529,10 +509,10 @@ public static void main(String[] args) {
                         "    title: 'Priya Half-Cooked Cafe1'\n});\n" +
                        
                         "marker.addListener('click', function() {\n"
-                       // + "map.setZoom(8);\n"
+                      
                         + "save(marker.title,marker.type);\n"
                         + "});\n"
-                       // + "save('Hello', 'World');});"
+                      
                         
                         );
             }
@@ -548,9 +528,7 @@ public static void main(String[] args) {
         googleframe.setVisible(true);
         googleframe.setBounds(100, 50, 1000, 760);
 		googleframe.setMaximumSize(new Dimension(1000,760));
-        
-        //browser.loadURL("http://www.google.com");
-       browser.loadURL("file:///Users/priyamaheshwari/Documents/java_programs/Google/src/map.html");
+        browser.loadURL("file:///Users/priyamaheshwari/Documents/java_programs/Google/src/map.html");
        		
     }
 }
