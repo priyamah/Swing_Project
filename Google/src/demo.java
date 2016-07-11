@@ -71,7 +71,6 @@ public class demo {
 		final JPanel leftPanel=new JPanel();
 		leftPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		leftPanel.setBackground(Color.MAGENTA);
-		//northPanel.setBounds(0, 0, 10, 223);
 		lowerPanel.add(leftPanel);
 		leftPanel.setLayout(new GridLayout(3, 0, 0, 0));
 		
@@ -108,11 +107,9 @@ public class demo {
 		final JPanel centerPanel=new JPanel();
 		centerPanel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
 		centerPanel.setBackground(Color.GREEN);
-		//northPanel.setBounds(0, 0, 10, 223);
 		lowerPanel.add(centerPanel);
 		centerPanel.setLayout(new BorderLayout(3, 3));
 		JPanel uppercenterpanel=new JPanel();
-		//centerlabel1.setSize(new Dimension(50,50));
 		JPanel lowercenterpanel=new JPanel();
 		centerPanel.add( uppercenterpanel,BorderLayout.NORTH);
 		centerPanel.add(lowercenterpanel,BorderLayout.CENTER);
